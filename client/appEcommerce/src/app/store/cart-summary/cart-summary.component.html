@@ -1,0 +1,14 @@
+<div class="class pull-xs-rigth">
+    <small>
+        <span *ngIf="cart.itemCount > 0">
+            {{cart.itemCount}} item (s)
+            {{cart.cartPrice | currency: "USD": true: "2.2-2"}} item (s)
+        </span>
+        <span *ngIf="cart.itemCount == 0">
+            (empty)
+        </span>
+        <button class="class btn btn-warning" [disabled]="cart.itemCount == 0">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/8d/Carrito.png/595px-Carrito.png" width="40" height="35">
+        </button>
+    </small>
+</div>
