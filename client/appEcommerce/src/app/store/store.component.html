@@ -67,11 +67,11 @@
                 <h4 class="card-title"> 
                   <a href="#">{{ product.productName }}</a>
                 </h4>
-                <h5>{{ product.MSRP | currency }}</h5>
+                <h4 class="card-title pricing-table">${{product.MSRP}}</h4>
                 <p class="card-text">{{ product.productDescription| slice: 0:50 }}</p>
               </div>
               <div class="card-footer">
-             <button type="button" class="btn btn-success" (click)="AddTotal(product)">
+             <button type="button" class="btn btn-danger" (click)="AddTotal(product)">
                Agregar
              </button>
             

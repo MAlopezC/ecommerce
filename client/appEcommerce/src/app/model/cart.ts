@@ -26,7 +26,24 @@ export class Cart {
     });
   }
 
+
+    updateTotal(product : Product, quantity : number){
+    let line = this.lines.find(line => line.product.productCode === product.productCode)
+    if (line !== undefined){
+        line.quantity = Number(quantity);
+    }
+
+    this.recalculate();
+
 }
+      cleanProducts(productCode: string){
+   let index = this.lines.findIndex(line => line.product.productCode === productCode);
+   this.lines.splice(index, 1);
+   this.recalculate();
+} 
+
+}
+
 
 export class CartLine {
     constructor(public product: Product, public quantity: number) {}
