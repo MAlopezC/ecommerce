@@ -13,37 +13,32 @@ export class Cart {
     } else {
       this.lines.push(new CartLine(product, quantity));
     }
-    this.recalculate();
+    this.recarculate();
   }
 
-  recalculate() {
-    this.itemCount = 0;
-    this.cartPrice = 0;
-     
-    this.lines.forEach((line) => {
-      this.itemCount += line.quantity;
-      this.cartPrice += (line.quantity * line.product.MSRP);
-    });
+  recarculate() {
+      this.itemCount = 0;
+      this.cartPrice = 0;
+      this.lines.forEach(l => {
+          this.itemCount += l.quantity; 
+          this.cartPrice += (l.quantity * l.product.MSRP);
+      }) 
   }
-
-
-    updateTotal(product : Product, quantity : number){
-    let line = this.lines.find(line => line.product.productCode === product.productCode)
+  updateTotal(product : Product, quantity : number){
+    let line = this.lines.find(line => line.product.productCode === product.productCode);
     if (line !== undefined){
-        line.quantity = Number(quantity);
+     line.quantity = Number(quantity);
     }
+    this.recarculate();
+  }
 
-    this.recalculate();
+  cleanProducts(productCode : string){
+    let index = this.lines.findIndex(line => line.product.productCode === productCode);
+    this.lines.splice(index, 1);
+    this.recarculate();
+  }
 
 }
-      cleanProducts(productCode: string){
-   let index = this.lines.findIndex(line => line.product.productCode === productCode);
-   this.lines.splice(index, 1);
-   this.recalculate();
-} 
-
-}
-
 
 export class CartLine {
     constructor(public product: Product, public quantity: number) {}

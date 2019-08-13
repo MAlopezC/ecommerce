@@ -4,12 +4,15 @@ import { StoreComponent } from './store/store.component';
 import { CartComponent } from './store/cart/cart.component';
 import { CheckoutComponent } from './store/checkout/checkout.component';
 import { PageNotFoundComponent } from './store/page-not-found/page-not-found.component';
+import { ProductsDetailsComponent } from './store/products-details/products-details.component';
 
 const routes: Routes = [{path: 'store', component:StoreComponent} , 
                         {path: 'cart',  component:CartComponent},
-                        {path: 'checkout', component :CheckoutComponent},
+                        {path: 'checkout', component :CheckoutComponent}, 
+                        { path: 'product/:productCode', component: ProductsDetailsComponent},
                         {path:'', redirectTo :'/store', pathMatch : 'full'},
-                        {path: '**', component: PageNotFoundComponent} ]
+                        {path: '**', component: PageNotFoundComponent},
+                      ]
                         ;
 
 

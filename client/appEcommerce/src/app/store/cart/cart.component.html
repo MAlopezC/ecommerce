@@ -1,40 +1,38 @@
-<app-nav></app-nav> 
-  <!-- Page Content -->
-  <div class="container">
-    <div class="row">
-      <h1>Cart</h1>
-      <table class="table">
-        <thead>
+<div class="container">
+  <div class="row">
+    <table class="table">
+      <thead>
           <tr>
-            <th scope="col">Name</th>
-            <th scope="col">Price</th>
-            <th scope="col">Quantity</th>
-            <th scope="col">Sub-Total</th>
-            <th scope="col">Cancel</th>
-          </tr>
-        </thead>
-        <tbody *ngFor="let line of cart.lines">
-          <tr>
-            <td>{{line.product.productName}}</td>
-            <td>{{line.product.MSRP | currency}}</td>
-            <td>
+              <th scope="col">Name</th>
+              <th scope="col">Price</th>
+              <th scope="col">Quantity</th>
+              <th scope="col">Sub-Total</th>
+              <th scope="col">Cancel</th>
+            </tr>
+      </thead>
+      <tbody *ngFor="let line of cart.lines">
+        <tr>
+          <td> {{ line.product.productName}} </td>
+          <td>
               <input type="number" [value]="line.quantity" (change)="cart.updateTotal(line.product, $event.target.value)">
             </td>
-            <td>
-              {{line.lineTotal | currency}}
+            <td>  
+              {{line.lineTotal | currency}} 
             </td>
             <td>
-                <button type="button" class="btn btn-danger" (click)="cart.cleanProducts(productCode)">Cancel</button>
-            </td>
+                <button type="button" class="btn btn-danger" (click)="cart.cleanProducts(productCode)">
+                    <img src="https://image.flaticon.com/icons/png/512/61/61391.png" alt="" width="30" height="30">
+                </button>
+              </td>
           </tr>
-        </tbody>
-        <tfoot>
+
+      </tbody>
+      <tfoot>
           <tr>
-            <th>Total</th>
+            <th>TOTAL</th>
             <th>{{cart.cartPrice | currency}}</th>
           </tr>
         </tfoot>
-      </table>
-
-    </div>
+    </table>
   </div>
+</div>

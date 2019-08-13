@@ -9,7 +9,6 @@ import { Cart , CartLine} from './cart';
   imports: [
     CommonModule
   ],
-  providers: [ProductDatasourceService, 
-    ProductRepositoryService]
+  providers: [ProductDatasourceService, ProductRepositoryService]
 })
 export class ModelModule { }
